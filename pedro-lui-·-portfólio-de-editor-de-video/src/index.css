@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --wall-bg: #C5B592;
+    --paper-light: #FAF8F5;
+    --paper-yellow: #F6F2E7;
+    --tape: rgba(215, 202, 165, 0.9);
+    --crayon-orange: #FFB703;
+    --crayon-lime: #9BC53D;
+    --crayon-green: #3FA34D;
+    --crayon-teal: #2A9D8F;
+    --crayon-red: #D93A2B;
+    --crayon-magenta: #B0306A;
+    --text-graphite: #3A3632;
+  }
+
+  body {
+    background-color: #C5B592;
+    color: #3A3632;
+    font-family: 'Karla', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Typography Utilities */
+.font-reenie {
+  font-family: 'Reenie Beanie', cursive;
+}
+
+.font-kalam {
+  font-family: 'Kalam', cursive;
+}
+
+.font-karla {
+  font-family: 'Karla', sans-serif;
+}
+
+.font-typewriter {
+  font-family: 'Special Elite', monospace;
+}
+
+/* Textured Wall Plaster & Vignette */
+.wall-texture {
+  background-color: #C5B592;
+  background-image: 
+    radial-gradient(ellipse at 50% 30%, rgba(212, 199, 172, 0.45) 0%, rgba(186, 170, 137, 0.5) 70%, rgba(162, 146, 114, 0.65) 100%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.055'/%3E%3C/svg%3E");
+}
+
+/* Ruled Notebook Paper Pattern */
+.paper-ruled {
+  background-color: #FAF8F5;
+  background-image: 
+    linear-gradient(90deg, transparent 48px, rgba(217, 58, 43, 0.22) 49px, rgba(217, 58, 43, 0.22) 50px, transparent 51px),
+    linear-gradient(#e5dfd3 1px, transparent 1px);
+  background-size: 100% 100%, 100% 28px;
+  background-position: 0 0, 0 8px;
+}
+
+/* Graph / Grid Paper Pattern */
+.paper-graph {
+  background-color: #F8F5EC;
+  background-image: 
+    linear-gradient(rgba(180, 168, 140, 0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(180, 168, 140, 0.22) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Torn / Jagged Masking Tape Snippets */
+.masking-tape {
+  background-color: rgba(205, 190, 150, 0.88);
+  box-shadow: 0 1px 3px rgba(58, 54, 50, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(0.5px);
+  border-left: 2px dashed rgba(160, 145, 110, 0.25);
+  border-right: 2px dashed rgba(160, 145, 110, 0.25);
+}
+
+.tape-torn-h {
+  clip-path: polygon(
+    0% 4%, 2% 0%, 98% 3%, 100% 8%,
+    99% 93%, 97% 98%, 3% 97%, 0% 92%
+  );
+}
+
+.tape-torn-diag {
+  clip-path: polygon(
+    2% 8%, 15% 1%, 85% 3%, 98% 10%,
+    96% 92%, 88% 99%, 12% 97%, 1% 88%
+  );
+}
+
+/* Paper Drop Shadow: Soft handcrafted organic drop */
+.paper-shadow {
+  box-shadow: 
+    0 6px 18px -2px rgba(45, 41, 37, 0.18),
+    0 2px 6px rgba(45, 41, 37, 0.1);
+}
+
+.paper-shadow-hover {
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.paper-shadow-hover:hover {
+  box-shadow: 
+    0 16px 32px -4px rgba(45, 41, 37, 0.24),
+    0 6px 12px rgba(45, 41, 37, 0.14);
+  transform: translateY(-4px) rotate(0deg) scale(1.015);
+}
+
+/* Torn top notebook edge */
+.torn-edge-top {
+  mask-image: radial-gradient(circle at 10px 0, transparent 0, transparent 6px, black 6.5px);
+  mask-size: 20px 20px;
+  mask-repeat: repeat-x;
+}
+
+/* Spiral Ring Binding effect */
+.spiral-ring {
+  background: linear-gradient(135deg, #71717A 0%, #E4E4E7 40%, #52525B 70%, #27272A 100%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+  border-radius: 9999px;
+}
+
+/* Crayon rough filter hook */
+.crayon-stroke {
+  filter: url(#hand-drawn-filter);
+}
+
+/* Drawing stroke keyframes for letters on load */
+@keyframes letterDraw {
+  0% {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.92) rotate(-8deg);
+  }
+  60% {
+    transform: translateY(3px) scale(1.04) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(var(--letter-rot, 0deg));
+  }
+}
+
+.animate-letter-draw {
+  animation: letterDraw 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Hand-drawn circle pulse on hover */
+@keyframes drawCircle {
+  from {
+    stroke-dashoffset: 400;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-draw-circle {
+  stroke-dasharray: 400;
+  animation: drawCircle 0.5s ease-out forwards;
+}
+
+/* Floating doodle subtle wobble */
+@keyframes doodleFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(1.5deg);
+  }
+}
+
+.animate-doodle-float {
+  animation: doodleFloat 5s ease-in-out infinite;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
