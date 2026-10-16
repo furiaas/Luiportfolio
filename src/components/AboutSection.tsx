@@ -11,16 +11,7 @@ export const AboutSection: React.FC = () => {
         
         {/* TORN NOTEBOOK SHEET CONTAINER - Página de Caderno Completa */}
         <div
-          className="relative bg-[#FAF8F5] rounded-sm p-6 sm:p-10 md:p-12 shadow-2xl border border-[#CDBE96]/60 transform -rotate-0.5 overflow-hidden"
-          style={{
-            backgroundImage: `
-              linear-gradient(90deg, transparent 48px, rgba(217, 58, 43, 0.28) 48px, rgba(217, 58, 43, 0.28) 50px, transparent 50px),
-              linear-gradient(180deg, transparent 31px, rgba(185, 170, 140, 0.42) 31px, rgba(185, 170, 140, 0.42) 32px)
-            `,
-            backgroundSize: '100% 100%, 100% 32px',
-            backgroundPosition: '0 0, 0 25px',
-            backgroundRepeat: 'no-repeat, repeat-y',
-          }}
+          className="relative bg-[#FAF8F5] rounded-sm p-6 sm:p-10 md:p-12 shadow-2xl border border-[#CDBE96]/60 transform -rotate-0.5 overflow-hidden notebook-sheet-about"
         >
           
           {/* Taped to the wall at corners */}
