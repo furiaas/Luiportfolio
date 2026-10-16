@@ -83,7 +83,7 @@ const RAW_PROJECTS: Project[] = [
     duration: '00:18',
     fps: '60 fps',
     videoUrl: 'https://www.instagram.com/wilsonsantosmt?utm_source=ig_web_button_share_sheet&dlrf=ZDNlZDc0MzIxNw==',
-    videoSrc: '/videos/feitos da politica.mp4',
+    videoSrc: '/videos/feitos_da_politica.mp4',
   },
   {
     id: 'casa-na-arvore-cafe',
