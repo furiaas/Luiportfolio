@@ -67,20 +67,13 @@ export const ColorSection: React.FC = () => {
               <div className="relative bg-white p-3 sm:p-4 pb-6 rounded-xs shadow-xl border border-[#CDBE96]/60">
                 <TapeSnippet position="top-center" width="w-20" height="h-5" rotation={-1} />
                 
-                <div className="flex items-center justify-between mb-2.5 px-1">
-                  <span className="font-typewriter text-xs font-bold text-[#5A544E]">
-                    ← ANTES (Flat)
-                  </span>
-                  <span className="font-kalam text-xs text-[#8A8075]">
-                    arraste para comparar
-                  </span>
-                  <span className="font-typewriter text-xs font-bold text-[#2A9D8F]">
-                    DEPOIS (Graded) →
-                  </span>
-                </div>
-
                 <div 
-                  className="relative aspect-9/16 max-h-[520px] mx-auto rounded-2xs overflow-hidden shadow-inner select-none cursor-ew-resize bg-[#1A1817]"
+                  className="relative aspect-9/16 max-h-[520px] mx-auto rounded-2xs overflow-hidden shadow-inner select-none cursor-ew-resize bg-[#1A1817] mt-1"
+                  onClick={(e) => {
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
+                    setSliderPos((x / rect.width) * 100);
+                  }}
                   onMouseMove={(e) => {
                     const rect = e.currentTarget.getBoundingClientRect();
                     const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
@@ -100,7 +93,7 @@ export const ColorSection: React.FC = () => {
                     className="absolute inset-0 w-full h-full object-cover pointer-events-none"
                   />
 
-                  {/* Clipped Image (Antes) */}
+                  {/* Clipped Image & Badge (Antes) */}
                   <div
                     className="absolute inset-0 overflow-hidden pointer-events-none"
                     style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
@@ -115,8 +108,14 @@ export const ColorSection: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="absolute top-3 right-3 px-2 py-0.5 bg-[#2A9D8F]/90 text-white font-typewriter text-[10px] font-bold rounded-2xs">
+                  {/* Clipped Badge (Depois) - corta conforme a linha avança para a direita */}
+                  <div
+                    className="absolute inset-0 pointer-events-none overflow-hidden"
+                    style={{ clipPath: `inset(0 0 0 ${sliderPos}%)` }}
+                  >
+                    <div className="absolute top-3 right-3 px-2 py-0.5 bg-[#2A9D8F]/90 text-white font-typewriter text-[10px] font-bold rounded-2xs shadow-xs">
                     DEPOIS
+                    </div>
                   </div>
 
                   {/* Slider Divider Line */}
