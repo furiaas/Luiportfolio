@@ -34,7 +34,7 @@ export const CRAYON_COLORS = {
   magenta: '#B0306A',
 };
 
-export const PROJECTS: Project[] = [
+const RAW_PROJECTS: Project[] = [
   {
     id: 'o-gigante-da-floresta',
     title: 'Conversa Motivacional',
@@ -232,6 +232,15 @@ export const PROJECTS: Project[] = [
     videoSrc: '/videos/ReelsParaPromoverCandidato.mp4',
   }
 ];
+// Prefixa caminhos de /public com o base do Vite ("/Luiportfolio/" no GitHub Pages, "/" local)
+const asset = (p: string) => `${import.meta.env.BASE_URL}${p.replace(/^\//, '')}`;
+
+export const PROJECTS: Project[] = RAW_PROJECTS.map((p) => ({
+  ...p,
+  mainImage: asset(p.mainImage),
+  gallery: p.gallery.map(asset),
+  videoSrc: p.videoSrc ? asset(p.videoSrc) : p.videoSrc,
+}));
 
 export const TESTIMONIALS = [
   {
