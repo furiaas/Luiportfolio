@@ -5,6 +5,7 @@ import { HeroBanner } from './components/HeroBanner.tsx';
 import { WorksSection } from './components/WorksSection.tsx';
 import { AboutSection } from './components/AboutSection.tsx';
 import { CampaignJingleSection } from './components/CampaignJingleSection.tsx';
+import { ColorSection } from './components/ColorSection.tsx';
 import { TestimonialsSection } from './components/TestimonialsSection.tsx';
 import { ContactSection } from './components/ContactSection.tsx';
 import { FooterSection } from './components/FooterSection.tsx';
@@ -74,7 +75,10 @@ export default function App() {
           {/* 5. Jingle de Campanha: Telão 16:9 & Storytelling dos 8 mil espectadores */}
           <CampaignJingleSection />
 
-          {/* 6. Testimonials Section: 3 colored post-its */}
+          {/* 6. Correção de Cor (Color Grading): Antes & Depois de Pastor Dinoildo */}
+          <ColorSection />
+
+          {/* 7. Testimonials Section: 3 colored post-its */}
           <TestimonialsSection />
 
           {/* 7. Contact Section: Acabou */}
