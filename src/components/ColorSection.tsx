@@ -147,7 +147,7 @@ export const ColorSection: React.FC = () => {
                 {/* Header Tag */}
                 <div className="flex items-center justify-between mb-2.5 px-1">
                   <span className="font-typewriter text-xs font-bold uppercase tracking-wider px-2.5 py-1 bg-[#EFEBDD] text-[#5A544E] rounded-2xs border border-[#CDBE96]/60">
-                    ANTES · Log / Flat
+                    ANTES · Log
                   </span>
                   <span className="font-kalam text-xs text-[#8A8075]">
                     bruto da câmera
@@ -162,9 +162,7 @@ export const ColorSection: React.FC = () => {
                     loading="lazy"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute top-2.5 left-2.5 px-2 py-0.5 bg-black/60 backdrop-blur-xs text-white/90 font-typewriter text-[11px] rounded-2xs">
-                    RAW LOG
-                  </div>
+                  
                 </div>
 
                 {/* Caption Description */}
@@ -201,9 +199,7 @@ export const ColorSection: React.FC = () => {
                     loading="lazy"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#2A9D8F]/90 backdrop-blur-xs text-white font-typewriter text-[11px] font-bold rounded-2xs shadow-xs">
-                    FINAL GRADE
-                  </div>
+                  
                 </div>
 
                 {/* Caption Description */}
