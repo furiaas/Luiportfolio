@@ -85,13 +85,68 @@ export const AboutSection: React.FC = () => {
                 {/* 2x2 grid with increased horizontal distance for blocks 2 and 4 */}
                 <div className="grid grid-cols-2 gap-y-4 gap-x-8 sm:gap-x-12 md:gap-x-16 max-w-sm sm:max-w-md">
                   {[
-                    { val: '3', label: 'anos/experiência', color: '#00E0FF', rot: -1.8, bg: 'bg-[#f3e9dd]' },
-                    { val: '7M', label: 'Visualizações', color: '#FF9100', rot: 1.5, bg: 'bg-[#f4f0ed]' },
-                    { val: '50', label: 'Projetos', color: '#FF9100', rot: -1.2, bg: 'bg-[#f4f0ed]' },
-                    { val: '15', label: 'Clientes impulsionados', color: '#00E0FF', rot: 1.8, bg: 'bg-[#f3e9dd]' },
+                    {
+                      id: 'exp',
+                      val: '3',
+                      color: '#00E0FF',
+                      rot: -1.8,
+                      bg: 'bg-[#f3e9dd]',
+                      renderLabel: () => (
+                        <>
+                          <span className="sm:hidden leading-tight block text-xs">
+                            anos/<br />experiência
+                          </span>
+                          <span className="hidden sm:inline sm:text-base">
+                            anos/experiência
+                          </span>
+                        </>
+                      ),
+                    },
+                    {
+                      id: 'views',
+                      val: '7M',
+                      color: '#FF9100',
+                      rot: 1.5,
+                      bg: 'bg-[#f4f0ed]',
+                      renderLabel: () => (
+                        <span className="text-[11.5px] sm:text-base leading-tight block">
+                          Visualizações
+                        </span>
+                      ),
+                    },
+                    {
+                      id: 'projects',
+                      val: '50',
+                      color: '#FF9100',
+                      rot: -1.2,
+                      bg: 'bg-[#f4f0ed]',
+                      renderLabel: () => (
+                        <span className="text-sm sm:text-base leading-tight block">
+                          Projetos
+                        </span>
+                      ),
+                    },
+                    {
+                      id: 'clients',
+                      val: '15',
+                      color: '#00E0FF',
+                      rot: 1.8,
+                      bg: 'bg-[#f3e9dd]',
+                      renderLabel: () => (
+                        <>
+                          <div className="sm:hidden flex flex-col items-center leading-tight">
+                            <span className="text-[10px]">Clientes</span>
+                            <span className="text-[12px]">impulsionados</span>
+                          </div>
+                          <span className="hidden sm:inline sm:text-base">
+                            Clientes impulsionados
+                          </span>
+                        </>
+                      ),
+                    },
                   ].map((item) => (
                     <div
-                      key={item.label}
+                      key={item.id}
                       className={`relative aspect-square ${item.bg} rounded-xs p-3 sm:p-4 flex flex-col items-center justify-center text-center shadow-md border border-[#3A3632]/20 transition-all duration-300 ease-out hover:rotate-0 hover:-translate-y-2 hover:scale-[1.06] hover:shadow-[0_20px_25px_-5px_rgba(40,30,20,0.35),0_10px_10px_-5px_rgba(40,30,20,0.2)]`}
                       style={{ transform: `rotate(${item.rot}deg)` }}
                     >
@@ -119,9 +174,9 @@ export const AboutSection: React.FC = () => {
                           +
                         </span>
                       </div>
-                      <span className="font-typewriter text-sm sm:text-base text-[#3A3632] mt-1.5 font-bold leading-tight text-center px-1">
-                        {item.label}
-                      </span>
+                      <div className="font-typewriter text-[#3A3632] mt-1.5 font-bold leading-tight text-center px-1">
+                        {item.renderLabel()}
+                      </div>
                     </div>
                   ))}
                 </div>
