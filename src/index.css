@@ -59,6 +59,24 @@
   background-position: 0 0, 0 8px;
 }
 
+/* Notebook Sheet Pattern for "QUEM É O LUI?" with responsive margin line */
+.notebook-sheet-about {
+  background-image: 
+    linear-gradient(90deg, transparent 16px, rgba(217, 58, 43, 0.28) 16px, rgba(217, 58, 43, 0.28) 18px, transparent 18px),
+    linear-gradient(180deg, transparent 31px, rgba(185, 170, 140, 0.42) 31px, rgba(185, 170, 140, 0.42) 32px);
+  background-size: 100% 100%, 100% 32px;
+  background-position: 0 0, 0 25px;
+  background-repeat: no-repeat, repeat-y;
+}
+
+@media (min-width: 640px) {
+  .notebook-sheet-about {
+    background-image: 
+      linear-gradient(90deg, transparent 48px, rgba(217, 58, 43, 0.28) 48px, rgba(217, 58, 43, 0.28) 50px, transparent 50px),
+      linear-gradient(180deg, transparent 31px, rgba(185, 170, 140, 0.42) 31px, rgba(185, 170, 140, 0.42) 32px);
+  }
+}
+
 /* Graph / Grid Paper Pattern */
 .paper-graph {
   background-color: #F8F5EC;
