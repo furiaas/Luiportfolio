@@ -12,6 +12,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: 'Trabalhos', href: '#trabalhos', color: '#FFB703', rotation: -1.5 },
   { label: 'Sobre', href: '#sobre', color: '#9BC53D', rotation: 1.8 },
   { label: 'Jingle', href: '#jingle-campanha', color: '#2A9D8F', rotation: -1.2 },
+  { label: 'Color', href: '#color', color: '#00E0FF', rotation: 1.5 },
   { label: 'Depoimentos', href: '#depoimentos', color: '#B0306A', rotation: 2 },
   { label: 'Contato', href: '#contato', color: '#D93A2B', rotation: -1 },
 ];
