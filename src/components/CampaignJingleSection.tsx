@@ -136,7 +136,7 @@ export const CampaignJingleSection: React.FC = () => {
                 <div className="relative aspect-16/9 w-full rounded-xs overflow-hidden bg-[#1C1A18] shadow-inner group">
                   <video
                     ref={videoRef}
-                    src="/videos/JuarezCostaJingle.mp4"
+                    src={`${import.meta.env.BASE_URL}videos/JuarezCostaJingle.mp4`}
                     poster={juarezJingleCapa}
                     playsInline
                     loop
