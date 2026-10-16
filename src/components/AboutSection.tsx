@@ -2,6 +2,7 @@ import React from 'react';
 import { TapeSnippet } from './TapeSnippet.tsx';
 import { HandDrawnUnderline, HandDrawnStar } from './HandDrawnSvgDefs.tsx';
 import { SKILLS_DATA, CRAYON_COLORS } from '../data/projects.ts';
+import luiFoto from '../assets/images/LuiTirandoFotoBemBoa.jpg';
 
 export const AboutSection: React.FC = () => {
   return (
@@ -57,7 +58,7 @@ export const AboutSection: React.FC = () => {
                 
                 <div className="relative aspect-square overflow-hidden bg-[#EFEBDD] rounded-2xs">
                   <img
-                    src="/src/assets/images/LuiTirandoFotoBemBoa.jpg"
+                    src={luiFoto}
                     alt="Foto polaroid de Lui - marina - sp, oct 23"
                     loading="lazy"
                     className="w-full h-full object-cover"
